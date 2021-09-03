@@ -53,17 +53,3 @@ function linePopulator(points) {
     linePopulator(points)
   }
 }
-
-function gradientLine(x1, y1, x2, y2, c1, c2) {
-  const length = floor(Math.sqrt((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1)))
-  stroke(c1)
-  translate(x1, y1)
-  const degrees = -1 * atan2(x2-x1, y2-y1)
-  rotate(degrees)
-
-  Array(length).fill(0).forEach((v, i) => {
-    stroke(lerpColor(color(c1), color(c2), i/length))
-  })
-  rotate(-1*degrees)
-  translate(-1*x1,-1*y1)
-}
